@@ -1,0 +1,159 @@
+{
+  "annotations": {
+    "changelogDate": "20250526133756"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "factureEnTeteRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numLigne",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "detailType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "utcDateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lclDateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "numSiege",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "niveauPrix",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalAffiche",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "quantiteAffiche",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "estErreur",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "estNul",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "estRetourne",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "estInvisible",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "totalLigne",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "codeRaisonRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "multiplicateur",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "referenceInfo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "referenceInfo2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "partieDeJourneeRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "periodeDeServiceRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numChrono",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "parentFactureDetailRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "taxePourcentage",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "taxeMontant",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "modePaiementTotal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "transactionEmployeRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "transfertEmployeRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "managerEmployeRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "repasEmployeRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "remiseRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "remiseElementMenuRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "commissionServiceRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "modePaiementRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "elementMenuRef",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "FactureDetail",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

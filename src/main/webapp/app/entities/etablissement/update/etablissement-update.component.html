@@ -1,0 +1,105 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-etablissement-heading" data-cy="EtablissementCreateUpdateHeading">Create or edit a Etablissement</h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          @let idRef = editForm.get('id')!;
+          <div class="mb-3">
+            <label class="form-label" for="field_id">Id</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+            @if (idRef.invalid && (idRef.dirty || idRef.touched)) {
+              <div>
+                @if (editForm.get('id')?.errors?.required) {
+                  <small class="form-text text-danger">This field is required.</small>
+                }
+              </div>
+            }
+          </div>
+        }
+
+        @let nomRef = editForm.get('nom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+          @if (nomRef.invalid && (nomRef.dirty || nomRef.touched)) {
+            <div>
+              @if (editForm.get('nom')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_estGroupe">Est Groupe</label>
+          <input type="checkbox" class="form-check" name="estGroupe" id="field_estGroupe" data-cy="estGroupe" formControlName="estGroupe" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_sourceVersion">Source Version</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sourceVersion"
+            id="field_sourceVersion"
+            data-cy="sourceVersion"
+            formControlName="sourceVersion"
+          />
+        </div>
+
+        @let societeRefRef = editForm.get('societeRef')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_societeRef">Societe Ref</label>
+          <input
+            type="text"
+            class="form-control"
+            name="societeRef"
+            id="field_societeRef"
+            data-cy="societeRef"
+            formControlName="societeRef"
+          />
+          @if (societeRefRef.invalid && (societeRefRef.dirty || societeRefRef.touched)) {
+            <div>
+              @if (editForm.get('societeRef')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let hierRefRef = editForm.get('hierRef')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_hierRef">Hier Ref</label>
+          <input type="text" class="form-control" name="hierRef" id="field_hierRef" data-cy="hierRef" formControlName="hierRef" />
+          @if (hierRefRef.invalid && (hierRefRef.dirty || hierRefRef.touched)) {
+            <div>
+              @if (editForm.get('hierRef')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+{
+  "annotations": {
+    "changelogDate": "20250526133753"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "num",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "barcode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "coutPreparation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "defNumSequence",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "prixNumSequence",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pointDeVenteRef",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "elementMenuRef",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Barcode",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

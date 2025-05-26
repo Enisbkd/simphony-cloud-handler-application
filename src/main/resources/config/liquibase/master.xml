@@ -12,6 +12,25 @@
     <property name="timeType" value="time(6)" dbms="postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133739_added_entity_Societe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133740_added_entity_Etablissement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133741_added_entity_PointDeVente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133742_added_entity_Hier.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133743_added_entity_Employe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133744_added_entity_Menu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133745_added_entity_ElementMenu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133746_added_entity_FamilyGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133747_added_entity_MajorGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133748_added_entity_CodeRaison.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133749_added_entity_Remise.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133750_added_entity_CommissionService.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133751_added_entity_ModePaiement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133752_added_entity_Taxe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133753_added_entity_Barcode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133754_added_entity_CategoriePointDeVente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133755_added_entity_FactureEnTete.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133756_added_entity_FactureDetail.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250526133757_added_entity_PartieDeJournee.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->

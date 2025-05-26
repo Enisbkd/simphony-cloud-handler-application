@@ -1,0 +1,106 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (factureEnTete(); as factureEnTeteRef) {
+      <div>
+        <h2 data-cy="factureEnTeteDetailsHeading"><span>Facture En Tete</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>Id</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.id }}</span>
+          </dd>
+          <dt><span>Num</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.num }}</span>
+          </dd>
+          <dt><span>Facture Ref</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.factureRef }}</span>
+          </dd>
+          <dt><span>Ouverture Date Time</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.ouvertureDateTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span>Fermeture Date Time</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.fermetureDateTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span>Est Annule</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.estAnnule }}</span>
+          </dd>
+          <dt><span>Nbre Pax</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.nbrePax }}</span>
+          </dd>
+          <dt><span>Num Table</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.numTable }}</span>
+          </dd>
+          <dt><span>Taxe Montant Total</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.taxeMontantTotal }}</span>
+          </dd>
+          <dt><span>Sous Total</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.sousTotal }}</span>
+          </dd>
+          <dt><span>Facture Total</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.factureTotal }}</span>
+          </dd>
+          <dt><span>Commission Total</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.commissionTotal }}</span>
+          </dd>
+          <dt><span>Tip Total</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.tipTotal }}</span>
+          </dd>
+          <dt><span>Remise Total</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.remiseTotal }}</span>
+          </dd>
+          <dt><span>Erreurs Corrigees Total</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.erreursCorrigeesTotal }}</span>
+          </dd>
+          <dt><span>Retour Total</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.retourTotal }}</span>
+          </dd>
+          <dt><span>Xfer To Facture En Tete Ref</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.xferToFactureEnTeteRef }}</span>
+          </dd>
+          <dt><span>Xfer Status</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.xferStatus }}</span>
+          </dd>
+          <dt><span>Categorie Point De Vente Ref</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.categoriePointDeVenteRef }}</span>
+          </dd>
+          <dt><span>Point De Vente Ref</span></dt>
+          <dd>
+            <span>{{ factureEnTeteRef.pointDeVenteRef }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/facture-en-tete', factureEnTeteRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

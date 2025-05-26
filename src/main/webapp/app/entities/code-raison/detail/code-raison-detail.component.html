@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (codeRaison(); as codeRaisonRef) {
+      <div>
+        <h2 data-cy="codeRaisonDetailsHeading"><span>Code Raison</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>Id</span></dt>
+          <dd>
+            <span>{{ codeRaisonRef.id }}</span>
+          </dd>
+          <dt><span>Nom Court</span></dt>
+          <dd>
+            <span>{{ codeRaisonRef.nomCourt }}</span>
+          </dd>
+          <dt><span>Nom Mstr</span></dt>
+          <dd>
+            <span>{{ codeRaisonRef.nomMstr }}</span>
+          </dd>
+          <dt><span>Num Mstr</span></dt>
+          <dd>
+            <span>{{ codeRaisonRef.numMstr }}</span>
+          </dd>
+          <dt><span>Name</span></dt>
+          <dd>
+            <span>{{ codeRaisonRef.name }}</span>
+          </dd>
+          <dt><span>Etablissement Ref</span></dt>
+          <dd>
+            <span>{{ codeRaisonRef.etablissementRef }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/code-raison', codeRaisonRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,129 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-barcode-heading" data-cy="BarcodeCreateUpdateHeading">Create or edit a Barcode</h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          @let idRef = editForm.get('id')!;
+          <div class="mb-3">
+            <label class="form-label" for="field_id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+            @if (idRef.invalid && (idRef.dirty || idRef.touched)) {
+              <div>
+                @if (editForm.get('id')?.errors?.required) {
+                  <small class="form-text text-danger">This field is required.</small>
+                }
+                <small class="form-text text-danger" [hidden]="!editForm.get('id')?.errors?.number">This field should be a number.</small>
+              </div>
+            }
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_num">Num</label>
+          <input type="number" class="form-control" name="num" id="field_num" data-cy="num" formControlName="num" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_barcode">Barcode</label>
+          <input type="text" class="form-control" name="barcode" id="field_barcode" data-cy="barcode" formControlName="barcode" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_prix">Prix</label>
+          <input type="number" class="form-control" name="prix" id="field_prix" data-cy="prix" formControlName="prix" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_coutPreparation">Cout Preparation</label>
+          <input
+            type="number"
+            class="form-control"
+            name="coutPreparation"
+            id="field_coutPreparation"
+            data-cy="coutPreparation"
+            formControlName="coutPreparation"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_defNumSequence">Def Num Sequence</label>
+          <input
+            type="number"
+            class="form-control"
+            name="defNumSequence"
+            id="field_defNumSequence"
+            data-cy="defNumSequence"
+            formControlName="defNumSequence"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_prixNumSequence">Prix Num Sequence</label>
+          <input
+            type="number"
+            class="form-control"
+            name="prixNumSequence"
+            id="field_prixNumSequence"
+            data-cy="prixNumSequence"
+            formControlName="prixNumSequence"
+          />
+        </div>
+
+        @let pointDeVenteRefRef = editForm.get('pointDeVenteRef')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_pointDeVenteRef">Point De Vente Ref</label>
+          <input
+            type="number"
+            class="form-control"
+            name="pointDeVenteRef"
+            id="field_pointDeVenteRef"
+            data-cy="pointDeVenteRef"
+            formControlName="pointDeVenteRef"
+          />
+          @if (pointDeVenteRefRef.invalid && (pointDeVenteRefRef.dirty || pointDeVenteRefRef.touched)) {
+            <div>
+              @if (editForm.get('pointDeVenteRef')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('pointDeVenteRef')?.errors?.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_elementMenuRef">Element Menu Ref</label>
+          <input
+            type="number"
+            class="form-control"
+            name="elementMenuRef"
+            id="field_elementMenuRef"
+            data-cy="elementMenuRef"
+            formControlName="elementMenuRef"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

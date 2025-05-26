@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (pointDeVente(); as pointDeVenteRef) {
+      <div>
+        <h2 data-cy="pointDeVenteDetailsHeading"><span>Point De Vente</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>Id</span></dt>
+          <dd>
+            <span>{{ pointDeVenteRef.id }}</span>
+          </dd>
+          <dt><span>Nom</span></dt>
+          <dd>
+            <span>{{ pointDeVenteRef.nom }}</span>
+          </dd>
+          <dt><span>Nom Court</span></dt>
+          <dd>
+            <span>{{ pointDeVenteRef.nomCourt }}</span>
+          </dd>
+          <dt><span>Est Actif</span></dt>
+          <dd>
+            <span>{{ pointDeVenteRef.estActif }}</span>
+          </dd>
+          <dt><span>Etablissement Ref</span></dt>
+          <dd>
+            <span>{{ pointDeVenteRef.etablissementRef }}</span>
+          </dd>
+          <dt><span>Hier Ref</span></dt>
+          <dd>
+            <span>{{ pointDeVenteRef.hierRef }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/point-de-vente', pointDeVenteRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

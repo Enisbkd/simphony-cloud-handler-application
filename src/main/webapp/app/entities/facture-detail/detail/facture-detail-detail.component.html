@@ -1,0 +1,170 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (factureDetail(); as factureDetailRef) {
+      <div>
+        <h2 data-cy="factureDetailDetailsHeading"><span>Facture Detail</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>Id</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.id }}</span>
+          </dd>
+          <dt><span>Facture En Tete Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.factureEnTeteRef }}</span>
+          </dd>
+          <dt><span>Num Ligne</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.numLigne }}</span>
+          </dd>
+          <dt><span>Detail Type</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.detailType }}</span>
+          </dd>
+          <dt><span>Utc Date Time</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.utcDateTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span>Lcl Date Time</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.lclDateTime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span>Num Siege</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.numSiege }}</span>
+          </dd>
+          <dt><span>Niveau Prix</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.niveauPrix }}</span>
+          </dd>
+          <dt><span>Total Affiche</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.totalAffiche }}</span>
+          </dd>
+          <dt><span>Quantite Affiche</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.quantiteAffiche }}</span>
+          </dd>
+          <dt><span>Est Erreur</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.estErreur }}</span>
+          </dd>
+          <dt><span>Est Nul</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.estNul }}</span>
+          </dd>
+          <dt><span>Est Retourne</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.estRetourne }}</span>
+          </dd>
+          <dt><span>Est Invisible</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.estInvisible }}</span>
+          </dd>
+          <dt><span>Total Ligne</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.totalLigne }}</span>
+          </dd>
+          <dt><span>Code Raison Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.codeRaisonRef }}</span>
+          </dd>
+          <dt><span>Multiplicateur</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.multiplicateur }}</span>
+          </dd>
+          <dt><span>Reference Info</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.referenceInfo }}</span>
+          </dd>
+          <dt><span>Reference Info 2</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.referenceInfo2 }}</span>
+          </dd>
+          <dt><span>Partie De Journee Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.partieDeJourneeRef }}</span>
+          </dd>
+          <dt><span>Periode De Service Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.periodeDeServiceRef }}</span>
+          </dd>
+          <dt><span>Num Chrono</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.numChrono }}</span>
+          </dd>
+          <dt><span>Parent Facture Detail Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.parentFactureDetailRef }}</span>
+          </dd>
+          <dt><span>Taxe Pourcentage</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.taxePourcentage }}</span>
+          </dd>
+          <dt><span>Taxe Montant</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.taxeMontant }}</span>
+          </dd>
+          <dt><span>Mode Paiement Total</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.modePaiementTotal }}</span>
+          </dd>
+          <dt><span>Prix</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.prix }}</span>
+          </dd>
+          <dt><span>Transaction Employe Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.transactionEmployeRef }}</span>
+          </dd>
+          <dt><span>Transfert Employe Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.transfertEmployeRef }}</span>
+          </dd>
+          <dt><span>Manager Employe Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.managerEmployeRef }}</span>
+          </dd>
+          <dt><span>Repas Employe Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.repasEmployeRef }}</span>
+          </dd>
+          <dt><span>Remise Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.remiseRef }}</span>
+          </dd>
+          <dt><span>Remise Element Menu Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.remiseElementMenuRef }}</span>
+          </dd>
+          <dt><span>Commission Service Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.commissionServiceRef }}</span>
+          </dd>
+          <dt><span>Mode Paiement Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.modePaiementRef }}</span>
+          </dd>
+          <dt><span>Element Menu Ref</span></dt>
+          <dd>
+            <span>{{ factureDetailRef.elementMenuRef }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/facture-detail', factureDetailRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
