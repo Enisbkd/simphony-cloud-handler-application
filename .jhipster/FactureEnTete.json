@@ -1,0 +1,95 @@
+{
+  "annotations": {
+    "changelogDate": "20250526133755"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "num",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "factureRef",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ouvertureDateTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "fermetureDateTime",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "estAnnule",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "nbrePax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numTable",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "taxeMontantTotal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sousTotal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "factureTotal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "commissionTotal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "tipTotal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "remiseTotal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "erreursCorrigeesTotal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "retourTotal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "xferToFactureEnTeteRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "xferStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "categoriePointDeVenteRef",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pointDeVenteRef",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "FactureEnTete",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

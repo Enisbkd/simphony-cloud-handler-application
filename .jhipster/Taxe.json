@@ -1,0 +1,44 @@
+{
+  "annotations": {
+    "changelogDate": "20250526133752"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomCourt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vatTaxRate",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "classId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "taxType",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "etablissementRef",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Taxe",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

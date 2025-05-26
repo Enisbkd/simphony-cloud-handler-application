@@ -1,0 +1,235 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-facture-en-tete-heading" data-cy="FactureEnTeteCreateUpdateHeading">Create or edit a Facture En Tete</h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          @let idRef = editForm.get('id')!;
+          <div class="mb-3">
+            <label class="form-label" for="field_id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+            @if (idRef.invalid && (idRef.dirty || idRef.touched)) {
+              <div>
+                @if (editForm.get('id')?.errors?.required) {
+                  <small class="form-text text-danger">This field is required.</small>
+                }
+                <small class="form-text text-danger" [hidden]="!editForm.get('id')?.errors?.number">This field should be a number.</small>
+              </div>
+            }
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_num">Num</label>
+          <input type="number" class="form-control" name="num" id="field_num" data-cy="num" formControlName="num" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_factureRef">Facture Ref</label>
+          <input
+            type="text"
+            class="form-control"
+            name="factureRef"
+            id="field_factureRef"
+            data-cy="factureRef"
+            formControlName="factureRef"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_ouvertureDateTime">Ouverture Date Time</label>
+          <div class="d-flex">
+            <input
+              id="field_ouvertureDateTime"
+              data-cy="ouvertureDateTime"
+              type="datetime-local"
+              class="form-control"
+              name="ouvertureDateTime"
+              formControlName="ouvertureDateTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_fermetureDateTime">Fermeture Date Time</label>
+          <div class="d-flex">
+            <input
+              id="field_fermetureDateTime"
+              data-cy="fermetureDateTime"
+              type="datetime-local"
+              class="form-control"
+              name="fermetureDateTime"
+              formControlName="fermetureDateTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_estAnnule">Est Annule</label>
+          <input type="checkbox" class="form-check" name="estAnnule" id="field_estAnnule" data-cy="estAnnule" formControlName="estAnnule" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_nbrePax">Nbre Pax</label>
+          <input type="number" class="form-control" name="nbrePax" id="field_nbrePax" data-cy="nbrePax" formControlName="nbrePax" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_numTable">Num Table</label>
+          <input type="number" class="form-control" name="numTable" id="field_numTable" data-cy="numTable" formControlName="numTable" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_taxeMontantTotal">Taxe Montant Total</label>
+          <input
+            type="number"
+            class="form-control"
+            name="taxeMontantTotal"
+            id="field_taxeMontantTotal"
+            data-cy="taxeMontantTotal"
+            formControlName="taxeMontantTotal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_sousTotal">Sous Total</label>
+          <input type="number" class="form-control" name="sousTotal" id="field_sousTotal" data-cy="sousTotal" formControlName="sousTotal" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_factureTotal">Facture Total</label>
+          <input
+            type="number"
+            class="form-control"
+            name="factureTotal"
+            id="field_factureTotal"
+            data-cy="factureTotal"
+            formControlName="factureTotal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_commissionTotal">Commission Total</label>
+          <input
+            type="number"
+            class="form-control"
+            name="commissionTotal"
+            id="field_commissionTotal"
+            data-cy="commissionTotal"
+            formControlName="commissionTotal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_tipTotal">Tip Total</label>
+          <input type="number" class="form-control" name="tipTotal" id="field_tipTotal" data-cy="tipTotal" formControlName="tipTotal" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_remiseTotal">Remise Total</label>
+          <input
+            type="number"
+            class="form-control"
+            name="remiseTotal"
+            id="field_remiseTotal"
+            data-cy="remiseTotal"
+            formControlName="remiseTotal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_erreursCorrigeesTotal">Erreurs Corrigees Total</label>
+          <input
+            type="number"
+            class="form-control"
+            name="erreursCorrigeesTotal"
+            id="field_erreursCorrigeesTotal"
+            data-cy="erreursCorrigeesTotal"
+            formControlName="erreursCorrigeesTotal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_retourTotal">Retour Total</label>
+          <input
+            type="number"
+            class="form-control"
+            name="retourTotal"
+            id="field_retourTotal"
+            data-cy="retourTotal"
+            formControlName="retourTotal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_xferToFactureEnTeteRef">Xfer To Facture En Tete Ref</label>
+          <input
+            type="number"
+            class="form-control"
+            name="xferToFactureEnTeteRef"
+            id="field_xferToFactureEnTeteRef"
+            data-cy="xferToFactureEnTeteRef"
+            formControlName="xferToFactureEnTeteRef"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_xferStatus">Xfer Status</label>
+          <input
+            type="text"
+            class="form-control"
+            name="xferStatus"
+            id="field_xferStatus"
+            data-cy="xferStatus"
+            formControlName="xferStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_categoriePointDeVenteRef">Categorie Point De Vente Ref</label>
+          <input
+            type="number"
+            class="form-control"
+            name="categoriePointDeVenteRef"
+            id="field_categoriePointDeVenteRef"
+            data-cy="categoriePointDeVenteRef"
+            formControlName="categoriePointDeVenteRef"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_pointDeVenteRef">Point De Vente Ref</label>
+          <input
+            type="number"
+            class="form-control"
+            name="pointDeVenteRef"
+            id="field_pointDeVenteRef"
+            data-cy="pointDeVenteRef"
+            formControlName="pointDeVenteRef"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

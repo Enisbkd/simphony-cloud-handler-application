@@ -50,6 +50,25 @@ public class CacheConfiguration {
             createCache(cm, mc.sbm.simphonycloud.domain.User.class.getName());
             createCache(cm, mc.sbm.simphonycloud.domain.Authority.class.getName());
             createCache(cm, mc.sbm.simphonycloud.domain.User.class.getName() + ".authorities");
+            createCache(cm, mc.sbm.simphonycloud.domain.Societe.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.Etablissement.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.PointDeVente.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.Hier.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.Employe.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.Menu.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.ElementMenu.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.FamilyGroup.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.MajorGroup.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.CodeRaison.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.Remise.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.CommissionService.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.ModePaiement.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.Taxe.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.Barcode.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.CategoriePointDeVente.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.FactureEnTete.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.FactureDetail.class.getName());
+            createCache(cm, mc.sbm.simphonycloud.domain.PartieDeJournee.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

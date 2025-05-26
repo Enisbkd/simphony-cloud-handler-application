@@ -1,0 +1,32 @@
+{
+  "annotations": {
+    "changelogDate": "20250526133742"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "parentHierId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "unitId",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Hier",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

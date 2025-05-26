@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (commissionService(); as commissionServiceRef) {
+      <div>
+        <h2 data-cy="commissionServiceDetailsHeading"><span>Commission Service</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>Id</span></dt>
+          <dd>
+            <span>{{ commissionServiceRef.id }}</span>
+          </dd>
+          <dt><span>Nom</span></dt>
+          <dd>
+            <span>{{ commissionServiceRef.nom }}</span>
+          </dd>
+          <dt><span>Nom Court</span></dt>
+          <dd>
+            <span>{{ commissionServiceRef.nomCourt }}</span>
+          </dd>
+          <dt><span>Type Value</span></dt>
+          <dd>
+            <span>{{ commissionServiceRef.typeValue }}</span>
+          </dd>
+          <dt><span>Value</span></dt>
+          <dd>
+            <span>{{ commissionServiceRef.value }}</span>
+          </dd>
+          <dt><span>Etablissement Ref</span></dt>
+          <dd>
+            <span>{{ commissionServiceRef.etablissementRef }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/commission-service', commissionServiceRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

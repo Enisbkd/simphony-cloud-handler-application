@@ -1,0 +1,208 @@
+entity Societe {
+  id String required
+  nom String
+  nomCourt String
+}
+
+entity Etablissement {
+  id String required
+  nom String required
+  estGroupe Boolean
+  sourceVersion String
+  societeRef String required
+  hierRef String required
+}
+
+entity PointDeVente {
+  id Integer required
+  nom String required
+  nomCourt String
+  estActif Boolean
+  etablissementRef String required
+  hierRef String required
+}
+
+entity Hier {
+  id String required
+  nom String required
+  parentHierId String
+  unitId String
+}
+
+entity Employe {
+  id Integer required
+  num Integer required
+  firstName String
+  lastName String
+  userName String
+  etablissementRef String required
+}
+
+entity Menu {
+  id Integer required
+  nom String required
+  description String
+  etablissementRef String required
+}
+
+entity ElementMenu {
+  id Integer required
+  masterId Integer required
+  nom String required
+  nomCourt String
+  familyGroupRef Integer required
+  prix Integer
+  menuRef Integer required
+}
+
+entity FamilyGroup {
+  id Integer required
+  nom String
+  nomCourt String required
+  majorGroupRef Integer
+}
+
+entity MajorGroup {
+  id Integer required
+  nom String required
+  nomCourt String
+  pointDeVenteRef Integer required
+}
+
+entity CodeRaison {
+  id Integer required
+  nomCourt Integer required
+  nomMstr String
+  numMstr Integer
+  name String
+  etablissementRef String required
+}
+
+entity Remise {
+  id Integer required
+  nom String
+  nomCourt String
+  nomMstr String
+  typeValue String
+  value Float
+  pointDeVenteRef Integer required
+}
+
+entity CommissionService {
+  id Integer required
+  nom String
+  nomCourt String
+  typeValue String
+  value Float
+  etablissementRef String required
+}
+
+entity ModePaiement {
+  id Integer required
+  nom String
+  nomCourt String
+  nomMstr String
+  type String
+  etablissementRef String required
+}
+
+entity Taxe {
+  id Integer required
+  nom String
+  nomCourt String
+  vatTaxRate Integer
+  classId Integer
+  taxType Integer
+  etablissementRef String required
+}
+
+entity Barcode {
+  id Integer required
+  num Integer
+  barcode String
+  prix Integer
+  coutPreparation Integer
+  defNumSequence Integer
+  prixNumSequence Integer
+  pointDeVenteRef Integer required
+  elementMenuRef Integer
+}
+
+entity CategoriePointDeVente {
+  id Integer required
+  categorie String
+  etablissementRef Integer
+}
+
+entity FactureEnTete {
+  id Integer required
+  num Integer
+  factureRef String
+  ouvertureDateTime ZonedDateTime
+  fermetureDateTime ZonedDateTime
+  estAnnule Boolean
+  nbrePax Integer
+  numTable Integer
+  taxeMontantTotal Integer
+  sousTotal Integer
+  factureTotal Integer
+  commissionTotal Integer
+  tipTotal Integer
+  remiseTotal Integer
+  erreursCorrigeesTotal Integer
+  retourTotal Integer
+  xferToFactureEnTeteRef Integer
+  xferStatus String
+  categoriePointDeVenteRef Integer
+  pointDeVenteRef Integer
+}
+
+entity FactureDetail {
+  id Integer required
+  factureEnTeteRef Integer
+  numLigne Integer
+  detailType String
+  utcDateTime Instant
+  lclDateTime Instant
+  numSiege String
+  niveauPrix Float
+  totalAffiche Float
+  quantiteAffiche Integer
+  estErreur Boolean
+  estNul Boolean
+  estRetourne Boolean
+  estInvisible Boolean
+  totalLigne Integer
+  codeRaisonRef Integer
+  multiplicateur Integer
+  referenceInfo String
+  referenceInfo2 String
+  partieDeJourneeRef Integer
+  periodeDeServiceRef Integer
+  numChrono Integer
+  parentFactureDetailRef Integer
+  taxePourcentage Integer
+  taxeMontant Integer
+  modePaiementTotal Integer
+  prix Integer
+  transactionEmployeRef Integer
+  transfertEmployeRef Integer
+  managerEmployeRef Integer
+  repasEmployeRef Integer
+  remiseRef Integer
+  remiseElementMenuRef Integer
+  commissionServiceRef Integer
+  modePaiementRef Integer
+  elementMenuRef Integer
+}
+
+entity PartieDeJournee {
+  id Integer required
+  timeRangeStart String
+  timeRangeEnd String
+  nom String required
+}
+
+paginate all with pagination
+dto all with mapstruct
+service all with serviceClass

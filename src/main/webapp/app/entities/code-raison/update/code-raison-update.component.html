@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-code-raison-heading" data-cy="CodeRaisonCreateUpdateHeading">Create or edit a Code Raison</h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          @let idRef = editForm.get('id')!;
+          <div class="mb-3">
+            <label class="form-label" for="field_id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+            @if (idRef.invalid && (idRef.dirty || idRef.touched)) {
+              <div>
+                @if (editForm.get('id')?.errors?.required) {
+                  <small class="form-text text-danger">This field is required.</small>
+                }
+                <small class="form-text text-danger" [hidden]="!editForm.get('id')?.errors?.number">This field should be a number.</small>
+              </div>
+            }
+          </div>
+        }
+
+        @let nomCourtRef = editForm.get('nomCourt')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_nomCourt">Nom Court</label>
+          <input type="number" class="form-control" name="nomCourt" id="field_nomCourt" data-cy="nomCourt" formControlName="nomCourt" />
+          @if (nomCourtRef.invalid && (nomCourtRef.dirty || nomCourtRef.touched)) {
+            <div>
+              @if (editForm.get('nomCourt')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('nomCourt')?.errors?.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_nomMstr">Nom Mstr</label>
+          <input type="text" class="form-control" name="nomMstr" id="field_nomMstr" data-cy="nomMstr" formControlName="nomMstr" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_numMstr">Num Mstr</label>
+          <input type="number" class="form-control" name="numMstr" id="field_numMstr" data-cy="numMstr" formControlName="numMstr" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        @let etablissementRefRef = editForm.get('etablissementRef')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_etablissementRef">Etablissement Ref</label>
+          <input
+            type="text"
+            class="form-control"
+            name="etablissementRef"
+            id="field_etablissementRef"
+            data-cy="etablissementRef"
+            formControlName="etablissementRef"
+          />
+          @if (etablissementRefRef.invalid && (etablissementRefRef.dirty || etablissementRefRef.touched)) {
+            <div>
+              @if (editForm.get('etablissementRef')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

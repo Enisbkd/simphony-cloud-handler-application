@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (etablissement(); as etablissementRef) {
+      <div>
+        <h2 data-cy="etablissementDetailsHeading"><span>Etablissement</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>Id</span></dt>
+          <dd>
+            <span>{{ etablissementRef.id }}</span>
+          </dd>
+          <dt><span>Nom</span></dt>
+          <dd>
+            <span>{{ etablissementRef.nom }}</span>
+          </dd>
+          <dt><span>Est Groupe</span></dt>
+          <dd>
+            <span>{{ etablissementRef.estGroupe }}</span>
+          </dd>
+          <dt><span>Source Version</span></dt>
+          <dd>
+            <span>{{ etablissementRef.sourceVersion }}</span>
+          </dd>
+          <dt><span>Societe Ref</span></dt>
+          <dd>
+            <span>{{ etablissementRef.societeRef }}</span>
+          </dd>
+          <dt><span>Hier Ref</span></dt>
+          <dd>
+            <span>{{ etablissementRef.hierRef }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/etablissement', etablissementRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

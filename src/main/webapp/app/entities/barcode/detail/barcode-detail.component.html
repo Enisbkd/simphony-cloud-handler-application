@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (barcode(); as barcodeRef) {
+      <div>
+        <h2 data-cy="barcodeDetailsHeading"><span>Barcode</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>Id</span></dt>
+          <dd>
+            <span>{{ barcodeRef.id }}</span>
+          </dd>
+          <dt><span>Num</span></dt>
+          <dd>
+            <span>{{ barcodeRef.num }}</span>
+          </dd>
+          <dt><span>Barcode</span></dt>
+          <dd>
+            <span>{{ barcodeRef.barcode }}</span>
+          </dd>
+          <dt><span>Prix</span></dt>
+          <dd>
+            <span>{{ barcodeRef.prix }}</span>
+          </dd>
+          <dt><span>Cout Preparation</span></dt>
+          <dd>
+            <span>{{ barcodeRef.coutPreparation }}</span>
+          </dd>
+          <dt><span>Def Num Sequence</span></dt>
+          <dd>
+            <span>{{ barcodeRef.defNumSequence }}</span>
+          </dd>
+          <dt><span>Prix Num Sequence</span></dt>
+          <dd>
+            <span>{{ barcodeRef.prixNumSequence }}</span>
+          </dd>
+          <dt><span>Point De Vente Ref</span></dt>
+          <dd>
+            <span>{{ barcodeRef.pointDeVenteRef }}</span>
+          </dd>
+          <dt><span>Element Menu Ref</span></dt>
+          <dd>
+            <span>{{ barcodeRef.elementMenuRef }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/barcode', barcodeRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

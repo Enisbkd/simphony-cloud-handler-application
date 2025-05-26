@@ -1,0 +1,121 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-element-menu-heading" data-cy="ElementMenuCreateUpdateHeading">Create or edit a Element Menu</h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          @let idRef = editForm.get('id')!;
+          <div class="mb-3">
+            <label class="form-label" for="field_id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+            @if (idRef.invalid && (idRef.dirty || idRef.touched)) {
+              <div>
+                @if (editForm.get('id')?.errors?.required) {
+                  <small class="form-text text-danger">This field is required.</small>
+                }
+                <small class="form-text text-danger" [hidden]="!editForm.get('id')?.errors?.number">This field should be a number.</small>
+              </div>
+            }
+          </div>
+        }
+
+        @let masterIdRef = editForm.get('masterId')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_masterId">Master Id</label>
+          <input type="number" class="form-control" name="masterId" id="field_masterId" data-cy="masterId" formControlName="masterId" />
+          @if (masterIdRef.invalid && (masterIdRef.dirty || masterIdRef.touched)) {
+            <div>
+              @if (editForm.get('masterId')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('masterId')?.errors?.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let nomRef = editForm.get('nom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+          @if (nomRef.invalid && (nomRef.dirty || nomRef.touched)) {
+            <div>
+              @if (editForm.get('nom')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_nomCourt">Nom Court</label>
+          <input type="text" class="form-control" name="nomCourt" id="field_nomCourt" data-cy="nomCourt" formControlName="nomCourt" />
+        </div>
+
+        @let familyGroupRefRef = editForm.get('familyGroupRef')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_familyGroupRef">Family Group Ref</label>
+          <input
+            type="number"
+            class="form-control"
+            name="familyGroupRef"
+            id="field_familyGroupRef"
+            data-cy="familyGroupRef"
+            formControlName="familyGroupRef"
+          />
+          @if (familyGroupRefRef.invalid && (familyGroupRefRef.dirty || familyGroupRefRef.touched)) {
+            <div>
+              @if (editForm.get('familyGroupRef')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('familyGroupRef')?.errors?.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_prix">Prix</label>
+          <input type="number" class="form-control" name="prix" id="field_prix" data-cy="prix" formControlName="prix" />
+        </div>
+
+        @let menuRefRef = editForm.get('menuRef')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_menuRef">Menu Ref</label>
+          <input type="number" class="form-control" name="menuRef" id="field_menuRef" data-cy="menuRef" formControlName="menuRef" />
+          @if (menuRefRef.invalid && (menuRefRef.dirty || menuRefRef.touched)) {
+            <div>
+              @if (editForm.get('menuRef')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('menuRef')?.errors?.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (majorGroup(); as majorGroupRef) {
+      <div>
+        <h2 data-cy="majorGroupDetailsHeading"><span>Major Group</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>Id</span></dt>
+          <dd>
+            <span>{{ majorGroupRef.id }}</span>
+          </dd>
+          <dt><span>Nom</span></dt>
+          <dd>
+            <span>{{ majorGroupRef.nom }}</span>
+          </dd>
+          <dt><span>Nom Court</span></dt>
+          <dd>
+            <span>{{ majorGroupRef.nomCourt }}</span>
+          </dd>
+          <dt><span>Point De Vente Ref</span></dt>
+          <dd>
+            <span>{{ majorGroupRef.pointDeVenteRef }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/major-group', majorGroupRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,255 @@
+<div>
+  <h2 id="page-heading" data-cy="FactureEnTeteHeading">
+    <span>Facture En Tetes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-facture-en-tete"
+        [routerLink]="['/facture-en-tete/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span>Create a new Facture En Tete</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (factureEnTetes().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span>No Facture En Tetes found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span>Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="num">
+              <div class="d-flex">
+                <span>Num</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="factureRef">
+              <div class="d-flex">
+                <span>Facture Ref</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ouvertureDateTime">
+              <div class="d-flex">
+                <span>Ouverture Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fermetureDateTime">
+              <div class="d-flex">
+                <span>Fermeture Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="estAnnule">
+              <div class="d-flex">
+                <span>Est Annule</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nbrePax">
+              <div class="d-flex">
+                <span>Nbre Pax</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="numTable">
+              <div class="d-flex">
+                <span>Num Table</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="taxeMontantTotal">
+              <div class="d-flex">
+                <span>Taxe Montant Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sousTotal">
+              <div class="d-flex">
+                <span>Sous Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="factureTotal">
+              <div class="d-flex">
+                <span>Facture Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="commissionTotal">
+              <div class="d-flex">
+                <span>Commission Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tipTotal">
+              <div class="d-flex">
+                <span>Tip Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remiseTotal">
+              <div class="d-flex">
+                <span>Remise Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="erreursCorrigeesTotal">
+              <div class="d-flex">
+                <span>Erreurs Corrigees Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="retourTotal">
+              <div class="d-flex">
+                <span>Retour Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="xferToFactureEnTeteRef">
+              <div class="d-flex">
+                <span>Xfer To Facture En Tete Ref</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="xferStatus">
+              <div class="d-flex">
+                <span>Xfer Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="categoriePointDeVenteRef">
+              <div class="d-flex">
+                <span>Categorie Point De Vente Ref</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="pointDeVenteRef">
+              <div class="d-flex">
+                <span>Point De Vente Ref</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (factureEnTete of factureEnTetes(); track trackId(factureEnTete)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/facture-en-tete', factureEnTete.id, 'view']">{{ factureEnTete.id }}</a>
+              </td>
+              <td>{{ factureEnTete.num }}</td>
+              <td>{{ factureEnTete.factureRef }}</td>
+              <td>{{ factureEnTete.ouvertureDateTime | formatMediumDatetime }}</td>
+              <td>{{ factureEnTete.fermetureDateTime | formatMediumDatetime }}</td>
+              <td>{{ factureEnTete.estAnnule }}</td>
+              <td>{{ factureEnTete.nbrePax }}</td>
+              <td>{{ factureEnTete.numTable }}</td>
+              <td>{{ factureEnTete.taxeMontantTotal }}</td>
+              <td>{{ factureEnTete.sousTotal }}</td>
+              <td>{{ factureEnTete.factureTotal }}</td>
+              <td>{{ factureEnTete.commissionTotal }}</td>
+              <td>{{ factureEnTete.tipTotal }}</td>
+              <td>{{ factureEnTete.remiseTotal }}</td>
+              <td>{{ factureEnTete.erreursCorrigeesTotal }}</td>
+              <td>{{ factureEnTete.retourTotal }}</td>
+              <td>{{ factureEnTete.xferToFactureEnTeteRef }}</td>
+              <td>{{ factureEnTete.xferStatus }}</td>
+              <td>{{ factureEnTete.categoriePointDeVenteRef }}</td>
+              <td>{{ factureEnTete.pointDeVenteRef }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/facture-en-tete', factureEnTete.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/facture-en-tete', factureEnTete.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(factureEnTete)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (factureEnTetes().length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page, totalItems, itemsPerPage }" />
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>
