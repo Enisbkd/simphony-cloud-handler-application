@@ -1,0 +1,141 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+logging:
+  level:
+    ROOT: DEBUG
+    tech.jhipster: DEBUG
+    org.hibernate.SQL: DEBUG
+    mc.sbm.simphonycloud: INFO
+    reactor.netty: WARN
+    reactor.core.publisher.Hooks: WARN
+    io.netty: WARN
+    io.netty.resolver.dns.DnsNameResolverBuilder: WARN
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-exclude: static/**,.h2.server.properties
+    livereload:
+      enabled: false # we use Webpack dev server + BrowserSync for livereload
+  docker:
+    compose:
+      enabled: false
+      profiles:
+        active: dev
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: user
+    password: secret
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  h2:
+    console:
+      # JHipster uses a custom h2-console initializer
+      enabled: true
+  liquibase:
+    # Remove 'faker' if you do not want the sample data to be loaded automatically
+    contexts: dev
+  mail:
+    host: localhost
+    port: 25
+    username:
+    password:
+  messages:
+    cache-duration: PT1S # 1 second, see the ISO 8601 standard
+  thymeleaf:
+    cache: false
+
+server:
+  port: 5000
+  # make sure requests the proxy uri instead of the server one
+  forward-headers-strategy: native
+
+jhipster:
+  cache: # Cache configuration
+    ehcache: # Ehcache configuration
+      time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
+      max-entries: 100 # Number of objects in each cache entry
+  # CORS is only enabled by default with the "dev" profile
+  cors:
+    # Allow Ionic for JHipster by default (* no longer allowed in Spring Boot 2.4+)
+    allowed-origins: 'http://localhost:8100,https://localhost:8100,http://localhost:9000,https://localhost:9000,http://localhost:4200,https://localhost:4200'
+    # Enable CORS when running in GitHub Codespaces
+    allowed-origin-patterns: 'https://*.githubpreview.dev'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: 'Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params'
+    allow-credentials: true
+    max-age: 1800
+  security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+        base64-secret: NmU4YWJhYWE3YzE4ZDg5YzJiZjk2NmZkZTQ5NzU1NWM3MzJiMmNmZjBjMTQ2MDU1ZTE0NmY3ZTk1ZGZmNThlODMyZjExYWIzZjAwMThjOGU0NmRmN2M0ODZhYWFmZWU3YWMwN2E5Zjg4NDIwYTM2OWU1M2UxZTViZGZhNGJhNzQ=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000
+  mail: # specific JHipster mail property, for standard properties see MailProperties
+    base-url: http://127.0.0.1:5000
+  logging:
+    use-json-format: false # By default, logs are not in Json format
+    logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+      enabled: false
+      host: localhost
+      port: 5000
+      ring-buffer-size: 512
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# ===================================================================
+
+# application:
+simphony:
+  orgShortName: MOC
+  oidc:
+    hostname: https://apm-dev0.sbm.interne/simphonycloud/v1
+    api_key: 23bcfdf9-a9a4-415f-870a-7ea2318df988
+  bi:
+    hostname: https://mte5-omra.oracleindustry.com
+    api_key:
+    client_id: TU9DLmFkYjQwMDkxLTIxNzEtNDY5Yi1iMmUzLTc0YmQwYmY2Y2RlZQ
+    username: ABO-B-I2
+    password: Zal9a*bfal9a
+  transactional:
+    hostname: apm-dev0.sbm.interne
+    api_key: d8f5464d-4f94-4364-9105-131968a514d3
+    client_id: TU9DLjYwYmNjODJjLTQ5YWItNGZkYS05ZTljLTcyOTliM2I2ZTZiYg
+    username: ABO-TRANSACTIONS2
+    password: Zal9a*bfal9a
+  config-and-content:
+    hostname:
+    api_key: c416aee2-f302-4c14-a5d4-871c0a28faeb
+    client_id:
+    username:
+    password:
+
+proxy:
+  enabled: false
+  host: 10.62.1.10
+  port: 3128

@@ -1,7 +1,8 @@
 package mc.sbm.simphonycloud.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -10,7 +11,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * A Societe.
  */
 @Entity
-@Table(name = "societe")
+@Table(name = "ENC_ORG_Societe")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class Societe implements Serializable {
@@ -24,9 +25,11 @@ public class Societe implements Serializable {
     private String id;
 
     @Column(name = "nom")
+    @JsonProperty("name")
     private String nom;
 
     @Column(name = "nom_court")
+    @JsonProperty("orgShortName")
     private String nomCourt;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

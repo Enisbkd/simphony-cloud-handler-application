@@ -1,0 +1,7 @@
+#HttpOnly_apm-dev0.sbm.interne	FALSE	/	FALSE	0	redirect_uri	apiaccount://callback
+#HttpOnly_apm-dev0.sbm.interne	FALSE	/	FALSE	0	client_id	TU9DLjYwYmNjODJjLTQ5YWItNGZkYS05ZTljLTcyOTliM2I2ZTZiYg
+#HttpOnly_apm-dev0.sbm.interne	FALSE	/	FALSE	0	response_type	code
+#HttpOnly_apm-dev0.sbm.interne	FALSE	/	FALSE	0	state	999
+#HttpOnly_apm-dev0.sbm.interne	FALSE	/	FALSE	0	redirect_uri	apiaccount://callback
+#HttpOnly_apm-dev0.sbm.interne	FALSE	/	FALSE	0	code_challenge	5fG4mkYjw7krK8RNoffvoZJs7NbVvLEOyIygyaaXIk8
+#HttpOnly_apm-dev0.sbm.interne	FALSE	/	FALSE	0	code_challenge_method	S256
